@@ -47,7 +47,7 @@ namespace Gerador_Audio
 
         private void Setap()
         {
-            serviceApi = new ServiceApi(Constats.apyKey, Constats.apiUrl);
+            serviceApi = new ServiceApi(Constats.apiKey, Constats.apiUrl);
             if (!Directory.Exists(PathAudio)) Directory.CreateDirectory(PathAudio);
             editPasta.Text = config.Default.pastaAudio;
         }
