@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="Gerador_Audio.ContentsControl.Audios"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Gerador_Audio.ContentsControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="600">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid Margin="30,5">
+        <ListView BorderBrush="WhiteSmoke" Margin="0" x:Name="listAudios" SelectionChanged="listAudios_SelectionChanged" Height="210" MinWidth="400" VerticalAlignment="Top" SelectionMode="Single" MouseDoubleClick="listAudios_MouseDoubleClick">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Reproduzir" x:Name="mReproduzir" Click="mReproduzir_Click"/>
+                    <MenuItem Header="Renomear" x:Name="mRenomear" Click="mRenomear_Click"/>
+                    <MenuItem Header="Apagar" x:Name="mApagar"
+                    Click="mApagar_Click"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Cursor="Hand" Margin="1">
+                        <StackPanel Orientation="Vertical" Cursor="Hand">
+                            <TextBlock Text="{Binding Nome}" FontSize="20" FontFamily="Insaniburger"/>
+                            <TextBlock Text="{Binding Caminho}" FontSize="16"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ContentControl Margin="0" x:Name="contentPlayer" VerticalAlignment="Bottom" MinWidth="400" Height="190"/>
+        
+
+    </Grid>
+        <Grid Background="#7F707070" x:Name="telaRenome" Visibility="Collapsed">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button HorizontalAlignment="Right" Width="25" Height="30" 
+                BorderThickness="0" Margin="0,0,10,5" 
+                x:Name="btClose" Click="btClose_Click" Grid.Row="0"
+                Background="Transparent" fa:Awesome.Content="Close" 
+                FontSize="30" Foreground="Red" 
+                TextElement.FontFamily="pack://application:,,,/FontAwesome.WPF;component/#FontAwesome" Cursor="Hand"/>
+                <TextBox x:Name="editNomeNovo" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="200" 
+            Padding="5" FontSize="16" Visibility="Visible" Keyboard.PreviewKeyDown="editNomeNovo_PreviewKeyDown"/>
+            </StackPanel>
+        
+        </Grid>
+    </Grid>
+</UserControl>

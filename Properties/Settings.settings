@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Gerador_Audio.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="vozAtual" Type="System.String" Scope="User">
+      <Value Profile="(Default)">pt-BR_IsabelaV3Voice</Value>
+    </Setting>
+    <Setting Name="conteudoBox" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="pastaAudio" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\GeradorAudio</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
