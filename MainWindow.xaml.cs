@@ -27,9 +27,7 @@ namespace Gerador_Audio
     /// </summary>
     public partial class MainWindow : Window
     {
-        readonly string apiKey = "{key do serviço}",
-        apiUrl = "https://api.us-east.text-to-speech.watson.cloud.ibm.com",
-        PathAudio = config.Default.pastaAudio;
+        readonly string PathAudio = config.Default.pastaAudio;
         string arquivoGerado;
         string arquivoNome;
         ServiceApi serviceApi;
@@ -49,7 +47,7 @@ namespace Gerador_Audio
 
         private void Setap()
         {
-            serviceApi = new ServiceApi(apiKey, apiUrl);
+            serviceApi = new ServiceApi(Constats.apyKey, Constats.apiUrl);
             if (!Directory.Exists(PathAudio)) Directory.CreateDirectory(PathAudio);
             editPasta.Text = config.Default.pastaAudio;
         }
